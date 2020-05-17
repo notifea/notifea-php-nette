@@ -1,0 +1,35 @@
+{
+  "name": "notifea/notifea-php-nette",
+  "type": "library",
+  "homepage": "https://notifea.com",
+  "description": "Nette wrapper for PHP language for Notifea services.",
+  "keywords": [
+    "emails",
+    "email-sending",
+    "sms",
+    "sms-sending",
+    "transactional-emails",
+    "transactional-sms"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Notifea",
+      "email": "developer@notifea.com"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "notifea/notifea-php": "^1.0",
+    "nette/di": "^3.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Notifea\\Nette\\": "src"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "prefer-stable": true
+}
