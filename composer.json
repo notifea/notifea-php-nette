@@ -19,7 +19,6 @@
     }
   ],
   "require": {
-    "php": "^7.0",
     "notifea/notifea-php": "^1.0",
     "nette/di": "^3.0.0"
   },
