@@ -20,8 +20,8 @@ class NotifeaExtension extends CompilerExtension
         }
 
         $authorization = '';
-        if (!empty($this->config['api_host'])) {
-            $authorization = $this->config['api_host'];
+        if (!empty($this->config['authorization'])) {
+            $authorization = $this->config['authorization'];
         }
 
         $connectTimeout = 10;
