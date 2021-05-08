@@ -9,7 +9,8 @@ This package is a Nette wrapper for [Notifea PHP package](https://github.com/not
 ## Minimum requirements
 
 This package will require you to use:
-- PHP 7.0 or higher
+- PHP 5.6 or higher if you are using nette 2.4
+- PHP 7.0 or higher if you are using nette 3.0
 - [guzzlehttp/guzzle](https://github.com/guzzle/guzzle) 6.0 or higher 
 
 ## Installation
