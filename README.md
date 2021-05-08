@@ -6,12 +6,11 @@ and sms to their users.
 
 This package is a Nette wrapper for [Notifea PHP package](https://github.com/notifea/notifea-php).
 
-**Please note that our services are in alpha phase and are not yet available to public.** 
-
 ## Minimum requirements
 
 This package will require you to use:
-- PHP 7.0 or higher
+- PHP 5.6 or higher if you are using nette 2.4
+- PHP 7.0 or higher if you are using nette 3.0
 - [guzzlehttp/guzzle](https://github.com/guzzle/guzzle) 6.0 or higher 
 
 ## Installation
@@ -50,11 +49,19 @@ extensions:
     notifea: Notifea\Nette\DI\NotifeaExtension
 
 notifea:
-    api_host: "https://api.notifea.com"
+    api_host: "https://api.notifea.com/v1"
     authorization: "Bearer {token}"
     connect_timeout: 10
     timeout: 30
 ```
+
+### Versions
+
+This package currently supports:
+- nette 2.4 using tag ^0.0.1
+- nette 3.0 using tag ^1.0.0
+
+To add support for other versions please get in touch with us.
 
 ## Usage
 

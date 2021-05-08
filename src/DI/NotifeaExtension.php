@@ -15,7 +15,7 @@ class NotifeaExtension extends CompilerExtension
     public function getConfigSchema(): Schema
     {
         return Expect::structure([
-            'api_host' => Expect::string('https://api.notifea.com'),
+            'api_host' => Expect::string('https://api.notifea.com/v1'),
             'authorization' => Expect::string()->required(),
             'connect_timeout' => Expect::string('10'),
             'timeout' => Expect::string('30'),

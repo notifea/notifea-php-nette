@@ -15,11 +15,10 @@
   "authors": [
     {
       "name": "Notifea",
-      "email": "developer@notifea.com"
+      "email": "info@notifea.com"
     }
   ],
   "require": {
-    "php": "^7.0",
     "notifea/notifea-php": "^1.0",
     "nette/di": "^3.0.0"
   },
