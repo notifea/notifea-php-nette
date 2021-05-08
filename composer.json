@@ -20,7 +20,7 @@
   ],
   "require": {
     "notifea/notifea-php": "^1.0",
-    "nette/di": "^3.0.0"
+    "nette/di": "^2.4"
   },
   "autoload": {
     "psr-4": {
