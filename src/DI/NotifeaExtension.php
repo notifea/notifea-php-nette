@@ -7,6 +7,7 @@ use Nette\Schema\Expect;
 use Nette\Schema\Schema;
 use Notifea\Clients\NotifeaClient;
 use Notifea\Services\EmailService;
+use Notifea\Services\SmsSenderService;
 use Notifea\Services\SmsService;
 
 class NotifeaExtension extends CompilerExtension
@@ -34,13 +35,21 @@ class NotifeaExtension extends CompilerExtension
                 $this->config->timeout
             ]);
 
+        // emails
         $builder->addDefinition($this->prefix('emailService'))
             ->setFactory(EmailService::class, [
                 $this->prefix('@client'),
             ]);
 
+        // sms
         $builder->addDefinition($this->prefix('smsService'))
             ->setFactory(SmsService::class, [
+                $this->prefix('@client'),
+            ]);
+
+        // sms senders
+        $builder->addDefinition($this->prefix('smsSenderService'))
+            ->setFactory(SmsSenderService::class, [
                 $this->prefix('@client'),
             ]);
     }

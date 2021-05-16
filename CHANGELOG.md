@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 1.1.0
+
+- Added support to get, create, modify and delete sms senders
+
 ## 1.0.1
 
 - 78a7e08: Add v1 endpoint to base URL
