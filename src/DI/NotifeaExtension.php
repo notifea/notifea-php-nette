@@ -5,6 +5,7 @@ namespace Notifea\Nette\DI;
 use Nette\DI\CompilerExtension;
 use Notifea\Clients\NotifeaClient;
 use Notifea\Services\EmailService;
+use Notifea\Services\SmsSenderService;
 use Notifea\Services\SmsService;
 
 class NotifeaExtension extends CompilerExtension
@@ -49,6 +50,11 @@ class NotifeaExtension extends CompilerExtension
 
         $builder->addDefinition($this->prefix('smsService'))
             ->setFactory(SmsService::class, [
+                $this->prefix('@client'),
+            ]);
+
+        $builder->addDefinition($this->prefix('smsSenderService'))
+            ->setFactory(SmsSenderService::class, [
                 $this->prefix('@client'),
             ]);
     }

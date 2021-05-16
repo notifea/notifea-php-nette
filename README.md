@@ -10,14 +10,15 @@ This package is a Nette wrapper for [Notifea PHP package](https://github.com/not
 
 This package will require you to use:
 - PHP 7.0 or higher
-- [guzzlehttp/guzzle](https://github.com/guzzle/guzzle) 6.0 or higher 
+- [guzzlehttp/guzzle](https://github.com/guzzle/guzzle) 6.0 or higher
+- ext-json
 
 ## Installation
 
 To install the SDK you need to be using [Composer]([https://getcomposer.org/)
 in your project. To install it please see the [docs](https://getcomposer.org/download/).
 
-After you installed [Composer]([https://getcomposer.org/) install the SDK 
+After you installed [Composer]([https://getcomposer.org/) install the SDK
 
 ```shell script
 composer require notifea/notifea-php-nette
@@ -65,7 +66,7 @@ To add support for other versions please get in touch with us.
 ## Usage
 
 This packages provides a convenient dependency injection layer
-for `Notifea\Services\EmailService` and `Notifea\Services\SmsService` implemented in our 
+for `Notifea\Services\EmailService`, `Notifea\Services\SmsService` and `Notifea\Services\SmsSenderService` implemented in our
 core [Notifea PHP package](https://github.com/notifea/notifea-php) so they can be easily used anywhere in
 your Nette application.
 
@@ -79,16 +80,24 @@ class UserPresenter extends Nette\Application\UI\Presenter
 
     /** @var SmsService */
     protected $smsService;
+    
+    /** @var SmsSenderService */
+    protected $smsSenderService;
 
     /**
      * UserPresenter constructor.
      * @param EmailService $emailService
      * @param SmsService $smsService
+     * @param SmsSenderService $smsSenderService
      */
-    public function __construct(EmailService $emailService, SmsService $smsService)
-    {
+    public function __construct(
+        EmailService $emailService,
+        SmsService $smsService,
+        SmsSenderService $smsSenderService
+    ) {
         $this->emailService = $emailService;
         $this->smsService = $smsService;
+        $this->smsSenderService = $smsSenderService;
     }
 
     public function actionSendEmail()
@@ -106,10 +115,17 @@ class UserPresenter extends Nette\Application\UI\Presenter
         // ... 
         $sentSms = $this->smsService->sendSms($sms);
     }
+    
+    public function actionCreateSmsSender()
+    {
+        // .. your business logic
+        $smsSender = new SmsSender();
+        // ... 
+        $createdSmsSender = $this->smsService->createSmsSender($smsSender);
+    }
 
 }
 ```
-
 
 `EmailService` contains these methods:
 - getEmails()
@@ -122,6 +138,14 @@ class UserPresenter extends Nette\Application\UI\Presenter
 - getSms(string $smsUuid)
 - sendSms(Sms $sms)
 - deleteSms(string $smsUuid)
+
+`SmsSenderService` contains these methods:
+
+- getSmsSenders()
+- getSmsSender(string $smsSenderUuid)
+- createSmsSender(SmsSender $smsSender)
+- updateSmsSender(SmsSender $smsSender)
+- deleteSmsSender(string $smsSenderUuid)
 
 To find more detailed documentation about each method, check out our core [Notifea PHP package](https://github.com/notifea/notifea-php)
 
