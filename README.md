@@ -121,7 +121,7 @@ class UserPresenter extends Nette\Application\UI\Presenter
         // .. your business logic
         $smsSender = new SmsSender();
         // ... 
-        $createdSmsSender = $this->smsService->createSmsSender($smsSender);
+        $createdSmsSender = $this->smsSenderService->createSmsSender($smsSender);
     }
 
 }
